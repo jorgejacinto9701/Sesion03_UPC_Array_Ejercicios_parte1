@@ -2,154 +2,222 @@
 //
 
 #include <iostream>
+#include <string>
 using namespace std;
+
+void ejercicio01();
+void ejercicio02();
+void ejercicio03();
+void ejercicio04();
+void ejercicio05();
+void ejercicio06();
+void ejercicio07();
+void ejercicio08();
+void ejercicio09();
+void ejercicio10();
+void ejercicio11();
+void ejercicio12();
+void ejercicio13();
+void ejercicio14();
+void ejercicio15();
+
 
 int main()
 {
-	int n[10] = { 7, 6, 5, 9, 2, 1, 4, 5};
+	//ejercicio01();
+	//ejercicio02();
+	//ejercicio03();
+	//ejercicio04();
+	//ejercicio05();
+	//ejercicio06();
+	ejercicio07();
+	//ejercicio08();
+	//ejercicio09();
+	//ejercicio10();
+	//ejercicio11();
+	//ejercicio12();
+	//ejercicio13();
+	//ejercicio14();
+	//ejercicio15();
+}
+
+void ejercicio01() {
+	int n[5];
+	int * punteroN = n;
+	cout << "Ingrese 5 numeros enteros: " << endl;
+
+	for (int i = 0; i < 5; i++) {
+		cin >> *(punteroN + i);
+	}
+
+	for (int i = 0; i < 5; i++) {
+		cout << "Numero " << i << ": " << *(punteroN + i) << endl;
+	}
+
+}
+void ejercicio02() {
+	int n[10];
+	int* punteroN = n;
+	cout << "Ingrese 10 numeros enteros: " << endl;
+
+	for (int i = 0; i < 10; i++) {
+		cin >> *(punteroN + i);
+	}
+
+	cout << "Los pares : " << endl;
+
+	for (int i = 0; i < 10; i++) {
+		if (*(punteroN + i) % 2 == 0) {
+			cout << *(punteroN + i) << endl;
+		}
+		
+	}
+
+}
+void ejercicio03() {
+	int tamano = 0;
+	cout << "Ingrese el tamaño del arreglo: " << endl;
+	cin >> tamano;
+
+	float *calificaciones = new float[tamano];
+	float *punteroCal = calificaciones;
+	float suma = 0;
+
+	for (int i = 0; i < tamano; i++) {
+		cout << "Ingrese la calificacion " << i + 1 << ": " << endl;
+		cin >> *(punteroCal + i);
+		suma += *(punteroCal + i);
+	}
+
+	cout << "El promedio es: " << suma / tamano << endl;
+}
+void ejercicio04() {
+	int tamano = 0;
+	cout << "Ingrese el tamaño del arreglo: " << endl;
+	cin >> tamano;
+
+	int *n = new int[tamano];
 	int *punteroN = n;
 
-	//La suma de elementos
-	int suma = 0;
-	for (int i = 0; i < 8; i++) {
-		suma += * (punteroN + i);
+	for (int i = 0; i < tamano; i++) {
+		cout << "Ingrese los valores de N " << i + 1 << ": " << endl;
+		cin >> *(punteroN + i);
 	}
-	cout << "La suma de los elementos es: " << suma << endl;
-	//El promedio
-	cout << "El promedio es: " << (suma / 8.0) << endl;
 
-	//La suma de pares
-	int sumaPares = 0;
-	for (int i = 0; i < 8; i++) {
-		if (n[i] % 2 == 0) {
-			sumaPares += *(punteroN + i);
-		}
-	}
-	cout << "La suma de los pares es: " << sumaPares << endl;
+	int mayor = *punteroN;
+	int menor = *punteroN;
 
-	//La suma de impares
-	int sumaImpares = 0;
-	for (int i = 0; i < 8; i++) {
-		if (n[i] % 2 == 1) {
-			sumaImpares += *(punteroN + i);
-		}
-	}
-	cout << "La suma de impares es: " << sumaImpares << endl;
-
-	//El primer par
-	int primerPar = -1;
-	for (int i = 0; i < 8; i++) {
-		if (n[i] % 2 == 0) {
-			primerPar = *(punteroN + i);
-			break;
-		}
-	}
-	cout << "El primer Par es: " << primerPar << endl;
-
-	//El primer impar
-	int primerImPar = -1;
-	for (int i = 0; i < 8; i++) {
-		if (n[i] % 2 == 1) {
-			primerImPar = *(punteroN + i);
-			break;
-		}
-	}
-	cout << "El primer ImPar es: " << primerImPar << endl;
-
-	//El último par
-	int ultimoPar = -1;
-	for (int i = 7; i >=0 ; i--) {
-		if (n[i] % 2 == 0) {
-			ultimoPar = *(punteroN + i);
-			break;
-		}
-	}
-	cout << "El ultimo Par es: " << ultimoPar << endl;
-
-	//El último impar
-	int ultimoImpar = -1;
-	for (int i = 7; i >= 0; i--) {
-		if (n[i] % 2 == 1) {
-			ultimoImpar = *(punteroN + i);
-			break;
-		}
-	}
-	cout << "El ultimo Impar es: " << ultimoImpar << endl;
-
-	//El mayor
-	int mayor = n[0];
-	for (int i = 1; i < 8; i++) {
-		if (n[i] > mayor) {
+	for (int i = 0; i < tamano; i++) {
+		if (*(punteroN + i) > mayor) {
 			mayor = *(punteroN + i);
 		}
-	}
-	cout << "El mayor: " << mayor << endl;
-
-	
-	//El menor
-	int menor = n[0];
-	for (int i = 1; i < 8; i++) {
-		if (n[i] < menor){
+		if (*(punteroN + i) < menor) {
 			menor = *(punteroN + i);
 		}
 	}
-	cout << "El menor: " << menor << endl;
 
-	//El mayor par
-	int mayorPar = 0;
+	cout << "El numero mayor es: " << mayor << endl;
+	cout << "El numero menor es: " << menor << endl;
+}
+
+void ejercicio05() {
+	int n[10];
+	int *punteroN = n;
+	int invertidos[10];
+	int *punteroInv = invertidos;
+
+	cout << "Ingrese 10 numeros enteros: " << endl;
+
+	for (int i = 0; i < 10; i++) {
+		cin >> *(punteroN + i);
+	}
+
 	int c = 0;
+	for (int i = 9; i >=0 ; i--) {
+		*(punteroInv + c) = *(punteroN + i);
+		c++;
+	}
+
+	for (int i = 0; i < 10; i++) {
+		cout << "Invertido " << i << ": " << *(punteroInv + i) << endl;
+	}
+
+}
+void ejercicio06() {
+	int n[10];
+	int *punteroN = n;
+	cout << "Ingrese 10 numeros enteros: " << endl;
+
+	for (int i = 0; i < 10; i++) {
+		cin >> *(punteroN + i);
+	}
+
+	int contPositivos = 0;
+	int contNegativos = 0;
+	int contCeros = 0;
+	for (int i = 0; i < 10; i++) {
+		if (*(punteroN + i) > 0) {
+			contPositivos++;
+		}
+		else if (*(punteroN + i) < 0) {
+			contNegativos++;
+		}
+		else {
+			contCeros++;
+		}
+	}
+
+	cout << "Cantidad de numeros positivos: " << contPositivos << endl;
+	cout << "Cantidad de numeros negativos: " << contNegativos << endl;
+	cout << "Cantidad de ceros: " << contCeros << endl;
+
+
+}
+void ejercicio07() {
+	int tamano = 0;
+	cout << "Ingrese el tamaño del arreglo: " << endl;
+	cin >> tamano;
+
+	string *nombres = new string[tamano];
+	string *punteroNombres = nombres;
+
+	for (int i = 0; i < tamano; i++) {
+		cout << "Ingrese el nombre " << i + 1 << ": " << endl;
+		cin >> *(punteroNombres + i);
+	}
 	
-	for (int i = 0; i < 8; i++) {
-		if (n[i] % 2 == 0) {
-			c ++;
-			if (c == 1) {
-				mayorPar = *(punteroN + i);
-			}else{
-				if (n[i] > mayorPar) {
-					mayorPar = *(punteroN + i);
-				}
-			}
+	string nombreMayor = "";
+	for (int i = 0; i < tamano; i++) {
+		if ( (*(punteroNombres + i)).length() > nombreMayor.length()) {
+			nombreMayor = *(punteroNombres + i);
 		}
 	}
-	cout << "El mayor Par: " << mayorPar << endl;
 
-	//El menor par
-	int menorPar = 0;
-	int c2 = 0;
+	cout << "El nombre con mas caracteres es: " << nombreMayor << endl;
+	delete[] nombres;
 
-	for (int i = 0; i < 8; i++) {
-		if (n[i] % 2 == 0) {
-			c2++;
-			if (c2 == 1) {
-				menorPar = *(punteroN + i);
-			}
-			else {
-				if (n[i] < menorPar) {
-					menorPar = *(punteroN + i);;
-				}
-			}
-		}
-	}
-	cout << "El menor Par: " << menorPar << endl;
+}
+void ejercicio08() {
 
-	//El segundo mayor
-	int segundoMayor = n[0];
-	for (int i = 1; i < 8; i++) {
-		if (*(punteroN + i) != mayor && *(punteroN + i) > segundoMayor) {
-			segundoMayor = *(punteroN + i);;
-		}
-	}
-	cout << "El segundo mayor: " << segundoMayor << endl;
+}
+void ejercicio09() {
 
-	//El segundo menor
-	int segundoMenor = n[0];
-	for (int i = 1; i < 8; i++) {
-		if (*(punteroN + i) != menor && n[i] < segundoMenor) {
-			segundoMenor = *(punteroN + i);
-		}
-	}
-	cout << "El segundo menor: " << segundoMenor << endl;
+}
+void ejercicio10() {
 
-	//El segundo mayor par
-	//El segundo menor par
+}
+void ejercicio11() {
+
+}
+void ejercicio12() {
+
+}
+void ejercicio13() {
+
+}
+void ejercicio14() {
+
+}
+void ejercicio15() {
+
 }
