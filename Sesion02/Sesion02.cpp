@@ -7,11 +7,12 @@ using namespace std;
 int main()
 {
 	int n[10] = { 7, 6, 5, 9, 2, 1, 4, 5};
+	int *punteroN = n;
 
 	//La suma de elementos
 	int suma = 0;
 	for (int i = 0; i < 8; i++) {
-		suma += n[i];
+		suma += * (punteroN + i);
 	}
 	cout << "La suma de los elementos es: " << suma << endl;
 	//El promedio
@@ -21,7 +22,7 @@ int main()
 	int sumaPares = 0;
 	for (int i = 0; i < 8; i++) {
 		if (n[i] % 2 == 0) {
-			sumaPares += n[i];
+			sumaPares += *(punteroN + i);
 		}
 	}
 	cout << "La suma de los pares es: " << sumaPares << endl;
@@ -30,7 +31,7 @@ int main()
 	int sumaImpares = 0;
 	for (int i = 0; i < 8; i++) {
 		if (n[i] % 2 == 1) {
-			sumaImpares += n[i];
+			sumaImpares += *(punteroN + i);
 		}
 	}
 	cout << "La suma de impares es: " << sumaImpares << endl;
@@ -39,7 +40,7 @@ int main()
 	int primerPar = -1;
 	for (int i = 0; i < 8; i++) {
 		if (n[i] % 2 == 0) {
-			primerPar = n[i];
+			primerPar = *(punteroN + i);
 			break;
 		}
 	}
@@ -49,7 +50,7 @@ int main()
 	int primerImPar = -1;
 	for (int i = 0; i < 8; i++) {
 		if (n[i] % 2 == 1) {
-			primerImPar = n[i];
+			primerImPar = *(punteroN + i);
 			break;
 		}
 	}
@@ -59,7 +60,7 @@ int main()
 	int ultimoPar = -1;
 	for (int i = 7; i >=0 ; i--) {
 		if (n[i] % 2 == 0) {
-			ultimoPar = n[i];
+			ultimoPar = *(punteroN + i);
 			break;
 		}
 	}
@@ -69,7 +70,7 @@ int main()
 	int ultimoImpar = -1;
 	for (int i = 7; i >= 0; i--) {
 		if (n[i] % 2 == 1) {
-			ultimoImpar = n[i];
+			ultimoImpar = *(punteroN + i);
 			break;
 		}
 	}
@@ -79,7 +80,7 @@ int main()
 	int mayor = n[0];
 	for (int i = 1; i < 8; i++) {
 		if (n[i] > mayor) {
-			mayor = n[i];
+			mayor = *(punteroN + i);
 		}
 	}
 	cout << "El mayor: " << mayor << endl;
@@ -89,7 +90,7 @@ int main()
 	int menor = n[0];
 	for (int i = 1; i < 8; i++) {
 		if (n[i] < menor){
-			menor = n[i];
+			menor = *(punteroN + i);
 		}
 	}
 	cout << "El menor: " << menor << endl;
@@ -102,10 +103,10 @@ int main()
 		if (n[i] % 2 == 0) {
 			c ++;
 			if (c == 1) {
-				mayorPar = n[i];
+				mayorPar = *(punteroN + i);
 			}else{
 				if (n[i] > mayorPar) {
-					mayorPar = n[i];
+					mayorPar = *(punteroN + i);
 				}
 			}
 		}
@@ -120,11 +121,11 @@ int main()
 		if (n[i] % 2 == 0) {
 			c2++;
 			if (c2 == 1) {
-				menorPar = n[i];
+				menorPar = *(punteroN + i);
 			}
 			else {
 				if (n[i] < menorPar) {
-					menorPar = n[i];
+					menorPar = *(punteroN + i);;
 				}
 			}
 		}
@@ -134,8 +135,8 @@ int main()
 	//El segundo mayor
 	int segundoMayor = n[0];
 	for (int i = 1; i < 8; i++) {
-		if (n[i] != mayor &&  n[i] > segundoMayor) {
-			segundoMayor = n[i];
+		if (*(punteroN + i) != mayor && *(punteroN + i) > segundoMayor) {
+			segundoMayor = *(punteroN + i);;
 		}
 	}
 	cout << "El segundo mayor: " << segundoMayor << endl;
@@ -143,8 +144,8 @@ int main()
 	//El segundo menor
 	int segundoMenor = n[0];
 	for (int i = 1; i < 8; i++) {
-		if (n[i] != menor && n[i] < segundoMenor) {
-			segundoMenor = n[i];
+		if (*(punteroN + i) != menor && n[i] < segundoMenor) {
+			segundoMenor = *(punteroN + i);
 		}
 	}
 	cout << "El segundo menor: " << segundoMenor << endl;
